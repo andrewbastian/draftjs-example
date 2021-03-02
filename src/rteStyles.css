@@ -1,0 +1,39 @@
+div{
+	display: inline;
+}
+
+div.DraftEditor-root{
+	display: block;
+	height: 30rem;
+	/*add scroll bar when content goes beyond border*/
+	overflow-y: auto;
+	background-image: linear-gradient(to bottom left, #a8f3ff, #abb88e); 
+	margin-bottom: 4px;
+}
+button{
+	background-image: linear-gradient(to bottom right, #ab7c8e, #a8b7ff);
+	border: none;
+	text-decoration: none;
+	border-radius: 6px;
+	box-shadow: 2px 3px #9f7c8e;
+	width: 4rem;
+	margin-right: 2em;
+}
+.editor {
+  border: 2px solid black;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 1.6rem;
+  border-radius: 4px;
+  margin-bottom: 2em;
+  box-shadow: inset 0px 1px 8px -3px #ABABAB;
+
+	
+
+}
+
+.editor :global(.public-DraftEditor-content) {
+  min-height: 140px;
+  boirder: 3px solid green;
+}

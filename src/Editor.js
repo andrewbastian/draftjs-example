@@ -1,17 +1,37 @@
 import React, {useState} from 'react';
-import {Editor, EditorState } from 'draft-js';
-import './RTE.css';
+import Editor, { createEditorStateWithText } from '@draft-js-plugins/editor';
+import createToolbarPlugin from '@draft-js-plugins/static-toolbar';
+import rteStyles from './rteStyles.css';
+
+const text = ''
+const staticToolbar = createToolbarPlugin()
+const {Toolbar} = staticToolbar
+const plugins= [staticToolbar]
 
 const RTE = (props) => {
+
 	const [editorState, setEditorState] = useState(
-		() => EditorState.createEmpty(),
+		() => createEditorStateWithText(text),
 		)
+	const onFocus = (e)=> {
+		e.target.focus()
+	}
   return (
-    <div>
-    	<button id='bold'>B</button>
-    	<button id='italic'>I</button>
-    	<button id='underline'>U</button>
-    	<Editor editorState={editorState} onChange={setEditorState} />
+  		
+    	<div className={rteStyles.editor} onClick={onFocus}>
+
+    	
+
+    	<Editor 
+    	editorState={editorState} 
+    	onChange={setEditorState} 
+    	plugins={plugins}
+    	ref={rteStyles.editor}
+    	/>
+    	<div className="toolbar">
+			<Toolbar/>
+			{/*<button style={{fontSize: '11px', height:'24px'}}>Save</button>*/}
+    	</div>
     </div>
   )
 }
